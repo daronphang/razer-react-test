@@ -1,24 +1,19 @@
-import styles from "./profileItem.module.scss";
-import { useDispatch } from "react-redux";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
+import styles from "./profileItem.module.scss";
 import { ReactComponent as DefaultSvg } from "src/assets/images/profile_sel_default.svg";
 import { ReactComponent as GameSvg } from "src/assets/images/profile_sel_game.svg";
 import { ReactComponent as MovieSvg } from "src/assets/images/profile_sel_movie.svg";
 import { ReactComponent as MusicSvg } from "src/assets/images/profile_sel_music.svg";
 import { ReactComponent as CustomSvg } from "src/assets/images/profile_sel_custom.svg";
-import { useState } from "react";
+import { updateTitle } from "src/features/window/redux/windowSlice";
 import {
   editItemAndUpdateCurrentProfile,
   setCurProfile,
-} from "../../redux/profileSlice";
-import { updateTitle } from "src/features/window/redux/windowSlice";
+} from "src/features/profile/redux/profileSlice";
 
-export default function ProfileItem({
-  item,
-  activeItemId,
-  isEditable,
-  handleResetStates,
-}) {
+export default function ProfileItem({ item, isEditing }) {
   const [title, setTitle] = useState(item.name);
   const [SvgIcon] = useState(() => {
     switch (item.icon) {
@@ -37,12 +32,12 @@ export default function ProfileItem({
 
   // Redux.
   const dispatch = useDispatch();
+  const curProfile = useSelector((state) => state.profile.curProfile);
 
   const handleClickItem = () => {
-    if (activeItemId === item.id) return;
+    if (curProfile.id === item.id) return;
     dispatch(setCurProfile(item));
     dispatch(updateTitle(item.name));
-    handleResetStates();
   };
 
   const handleTitleChange = (e) => {
@@ -73,18 +68,18 @@ export default function ProfileItem({
     >
       <SvgIcon
         className={`${styles.svgIcon} ${
-          activeItemId === item.id ? styles.active : ""
+          curProfile.id === item.id ? styles.active : ""
         }`}
       />
       <div
         className={`${styles.title} ${
-          activeItemId === item.id ? styles.active : ""
+          curProfile.id === item.id ? styles.active : ""
         }`}
       >
         <div
           id="profile-item-name"
           className={`${styles.text} ${
-            !isEditable || activeItemId !== item.id
+            !isEditing || curProfile.id !== item.id
               ? styles.visible
               : styles.hidden
           }`}
@@ -93,7 +88,7 @@ export default function ProfileItem({
         </div>
         <input
           className={
-            isEditable && activeItemId === item.id
+            isEditing && curProfile.id === item.id
               ? styles.visible
               : styles.hidden
           }

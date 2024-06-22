@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const defaultProfile = { id: 1, name: "Default", icon: "default" };
+const defaultProfile = { id: -4, name: "Default", icon: "default" };
 const getInitialProfileState = () => {
   const stored = localStorage.getItem("profileItems");
   if (stored)
@@ -12,9 +12,9 @@ const getInitialProfileState = () => {
     curProfile: defaultProfile,
     items: [
       defaultProfile,
-      { id: 2, name: "Game", icon: "game" },
-      { id: 3, name: "Movie", icon: "movie" },
-      { id: 4, name: "Music", icon: "music" },
+      { id: -3, name: "Game", icon: "game" },
+      { id: -2, name: "Movie", icon: "movie" },
+      { id: -1, name: "Music", icon: "music" },
     ],
   };
 };

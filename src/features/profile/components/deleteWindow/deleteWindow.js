@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import styles from "./deleteWindow.module.scss";
-import { deleteItemAndUpdateCurrentProfile } from "../../redux/profileSlice";
 import { useEffect } from "react";
+import styles from "./deleteWindow.module.scss";
+import { deleteItemAndUpdateCurrentProfile } from "src/features/profile/redux/profileSlice";
 import { smartFloat } from "src/shared/utils";
 
 export default function DeleteWindow({ anchorId }) {
@@ -17,6 +17,7 @@ export default function DeleteWindow({ anchorId }) {
       <div className={styles.title}>DELETE EQ</div>
       <div className={styles.subtitle}>{curProfile.name}</div>
       <button
+        id="delete-profile-btn"
         className={styles.btn}
         onClick={() => dispatch(deleteItemAndUpdateCurrentProfile())}
       >
