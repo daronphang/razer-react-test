@@ -1,0 +1,33 @@
+@use "src/variables.scss";
+
+.drawer {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid variables.$secondary;
+  width: 200px;
+  height: 191px;
+  position: relative;
+  overflow-y: auto;
+  z-index: 1;
+}
+
+.toolbar {
+  width: 100%;
+  height: 29px;
+  background-color: #222;
+  border: 1px solid #707070;
+  display: flex;
+}
+
+.flexSpacer {
+  flex: 1 0 auto;
+}
+
+.btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.btn.disabled {
+  opacity: 0.3;
+  cursor: default;
+}

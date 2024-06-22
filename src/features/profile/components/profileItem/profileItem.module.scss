@@ -1,0 +1,68 @@
+@use "src/variables.scss";
+
+.profileItem {
+  display: flex;
+  min-height: 30px;
+  height: 30px;
+  border: none;
+  text-transform: capitalize;
+  padding: 5px 10px 5px 10px;
+  font-size: variables.$font-sm;
+  line-height: 20px;
+  position: relative;
+  z-index: 1;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.profileItem:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.text {
+  width: 140px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+input {
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 33px;
+  width: calc(100% - 34px);
+  border: 1px solid variables.$success;
+  box-sizing: border-box;
+  background-color: variables.$bg-2 !important;
+  padding: 4px 5px 5px 4px;
+  line-height: 20px;
+  color: variables.$primary;
+  font-size: variables.$font-sm;
+  font-weight: 500;
+  font-family: "Roboto" !important;
+}
+
+.active {
+  color: variables.$success !important;
+  fill: variables.$success !important;
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+
+.svgIcon {
+  fill: variables.$primary;
+  opacity: 0.3;
+  transition: all 0.2s;
+}
+
+.title {
+  margin-left: 7px;
+}

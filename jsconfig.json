@@ -1,0 +1,8 @@
+{
+  "include": ["src"],
+  "target": "es6",
+  "exclude": ["node_modules", "build"],
+  "compilerOptions": {
+    "baseUrl": "."
+  }
+}

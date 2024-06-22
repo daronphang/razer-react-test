@@ -1,0 +1,75 @@
+@use "./assets/fonts/razerf5";
+@use "./assets/fonts/roboto";
+@use "./variables.scss";
+
+body {
+  margin: 0;
+  font-family: "Roboto", "RazerF5", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: variables.$primary;
+  font-size: variables.$font-reg;
+  background-color: variables.$bg-1;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+div {
+  box-sizing: border-box; /* Opera/IE 8+ */
+}
+
+button {
+  all: unset;
+  padding: 3px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  width: 6px;
+  border: 1px solid rgba(0, 0, 0, 0);
+  border-top: 2px solid rgba(0, 0, 0, 0);
+  border-bottom: 2px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #44d62c;
+  border-radius: 4px;
+  width: 6px;
+  border: 1px solid rgba(0, 0, 0, 0);
+  border-top: 2px solid rgba(0, 0, 0, 0);
+  border-bottom: 2px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #2f941e;
+  border-radius: 4px;
+  width: 6px;
+  border: 1px solid rgba(0, 0, 0, 0);
+  border-top: 2px solid rgba(0, 0, 0, 0);
+  border-bottom: 2px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+}

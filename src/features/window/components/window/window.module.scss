@@ -1,0 +1,18 @@
+@use "src/variables.scss";
+
+.thxWindow {
+  background-color: variables.$bg-3;
+  padding: 20px 80px 20px 80px;
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.title {
+  width: 100%;
+  padding: 0 50px;
+  text-align: center;
+  color: variables.$primary;
+  font-size: variables.$font-lg;
+  font-weight: 500;
+}
